@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#070b18" />
+<title>CurioPlay — Play. Discover. Learn.</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo"></span><span>CurioPlay</span></div>
+    <nav class="nav">
+      <button class="active" data-view="home"><i>⌂</i> Home</button>
+      <button data-filter="For You"><i>✦</i> For You</button>
+      <button data-filter="Trending"><i>↗</i> Trending</button>
+      <button data-filter="Science"><i>◉</i> Science</button>
+      <button data-view="saved"><i>△</i> Saved</button>
+    </nav>
+    <div class="profile-card">
+      <div class="level-row"><strong>Level <span id="level">1</span> Explorer</strong><span><span id="xp">0</span> XP</span></div>
+      <div class="progress"><span id="xpBar"></span></div>
+      <div class="streak">🔥 Discovery streak: <strong id="streak">1 day</strong></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand"><span class="logo"></span><span>CurioPlay</span></div>
+      <div class="tabs" id="tabs"></div>
+      <label class="search" aria-label="Search games"><span>⌕</span><input id="searchInput" placeholder="Search games..." /></label>
+    </header>
+
+    <section class="hero-grid">
+      <article class="stage-card">
+        <div class="stage" id="stage">
+          <iframe id="gameFrame" allow="autoplay; fullscreen; gamepad; geolocation" allowfullscreen title="Playable game"></iframe>
+          <div class="cover" id="cover">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="pill" id="heroCategory"></span><span class="pill" id="heroDuration"></span><span class="pill" id="heroRepo"></span></div>
+              <h1 id="heroTitle"></h1>
+              <p id="heroDescription"></p>
+              <button class="play-big" id="playButton">▶ Play instantly</button>
+            </div>
+          </div>
+        </div>
+        <div class="stage-toolbar">
+          <strong class="stage-title-small" id="stageTitleSmall"></strong>
+          <button id="backButton" title="Back to game cover">↩</button>
+          <button id="saveButton" title="Save game">♡ <span class="save-label">Save</span></button>
+          <a id="openButton" target="_blank" rel="noopener" title="Open game directly">↗ <span class="external-label">View repo</span></a>
+          <button id="fullscreenButton" title="Fullscreen">⛶</button>
+          <button class="next" id="nextButton">Play Next →</button>
+        </div>
+      </article>
+
+      <aside class="discover-card">
+        <h3>✦ What you might discover</h3>
+        <div class="discovery-list" id="discoveryList"></div>
+        <div class="reward-card">
+          <small>Optional rewarded sponsor</small>
+          <strong>Unlock +100 XP and a featured game</strong>
+          <button id="adButton">Watch 5-second demo ad</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 id="sectionTitle">Recommended for you</h2><span id="resultCount"></span></div>
+      <div class="game-grid" id="gameGrid"></div>
+      <div class="empty" id="emptyState">No games match this view yet.</div>
+    </section>
+  </main>
+</div>
+
+<nav class="bottom-nav">
+  <button class="active" data-filter="For You"><i>⌂</i>Home</button>
+  <button data-filter="Trending"><i>⌁</i>Explore</button>
+  <button data-filter="Science"><i>✦</i>Discover</button>
+  <button data-view="saved"><i>△</i>Saved</button>
+</nav>
+
+<div class="sponsor-modal" id="sponsorModal">
+  <div class="sponsor-box">
+    <div class="sponsor-art">🧭</div>
+    <h2>Curiosity deserves a map.</h2>
+    <p>This is a placeholder for a short, brand-safe sponsor unit shown between games—not during play.</p>
+    <div class="countdown" id="countdown">Reward ready in 5 seconds</div>
+    <button id="closeAd" disabled>Continue</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
